@@ -6,3 +6,19 @@ on:
     branches:
       - main
   workflow_dispatch:
+
+jobs:
+  Setups:
+    name: Setups
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Verify Node.js Installation
+        run: node -v
