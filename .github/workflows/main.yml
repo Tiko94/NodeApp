@@ -22,3 +22,9 @@ jobs:
 
       - name: Verify Node.js Installation
         run: node -v
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
