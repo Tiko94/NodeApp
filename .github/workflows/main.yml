@@ -28,6 +28,7 @@ jobs:
 
   Lint:
     name: Run Lint
+    needs: Setups
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -38,7 +39,7 @@ jobs:
 
   Tests:
     name: Tests
-    needs: Setups
+    needs: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
