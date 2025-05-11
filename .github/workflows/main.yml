@@ -25,6 +25,19 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+      
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
+      - name: Run Snyk to check for vulnerabilities
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: snyk test
+
+      - name: Monitor project (optional, sends results to Snyk dashboard)
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: snyk monitor
 
   Lint:
     name: Run Lint
